@@ -3,7 +3,7 @@ const { sequelize } = require("../configuration/Databse");
 
 class TaskModel extends Model {
   static associate(models) {
-    TaskModel.belongsTo(models.UserModel, { foreignKey: "assignedUserId" });
+    TaskModel.belongsTo(models.UserModel, { foreignKey: "userId" });
   }
 }
 
