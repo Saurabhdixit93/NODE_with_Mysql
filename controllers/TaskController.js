@@ -39,7 +39,8 @@ module.exports.GetTaskById = async (req, res) => {
 module.exports.getAllTasks = async (req, res) => {
   const { userId } = req.params;
   try {
-    const tasks = await Models.TaskModel.findAll({ where: { userId } });
+    const tasks = await Models.TaskModel.findAll({ where: { assignedUserId: userId } });
+
 
     if (tasks.length === 0) {
       return res.status(404).json({
