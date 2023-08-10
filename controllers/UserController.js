@@ -42,7 +42,7 @@ module.exports.LoginUser = async (req, res) => {
       return res.status(401).json({ error: "Invalid credentials." });
     }
     // generate token for jwt aauth
-    const token = await jwt.sign({ id: user._id }, process.env.SECRETE_KEY, {
+    const token = await jwt.sign({ id: user.id }, process.env.SECRETE_KEY, {
       expiresIn: "1h",
     });
 
